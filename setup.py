@@ -16,7 +16,6 @@ setup(
     keywords='stock price prediction',
     classifiers=['Programming Language :: Python :: 3',
                  'Natural Language :: English',
-                 'Topic :: OFFICE/BUSINESS :: FINANCIAL :: INVESTMENT',
                  'Topic :: Utilities'],
     install_requires=['numpy', 'matplotlib', 'pytrends', 'pandas', 'requests', 'scikit-learn', 'keras', 'tensorflow']
 )
