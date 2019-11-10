@@ -56,7 +56,7 @@ def run(df, features=[], steps=1, training=0.9, error_method='mape'):
     model.add(LSTM(50, input_shape=(train_x.shape[1], train_x.shape[2])))
     model.add(Dense(1))
     model.compile(loss='mae', optimizer='adam')
-    model.fit(train_x, train_y, epochs=100, batch_size=70, verbose=2)
+    model.fit(train_x, train_y, epochs=100, batch_size=70, verbose=0)
 
     mod1 = rows + steps - 1
     mod2 = rows + steps
