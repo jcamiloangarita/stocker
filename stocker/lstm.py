@@ -75,7 +75,7 @@ def run(df, features=[], steps=1, training=0.9, error_method='mape'):
     y = scaler.inverse_transform(scaled)
     y = y[mod2:, 0]
 
-    finalprice = y_predicted[-1]
+    finalprice = round(y_predicted[-1],2)
     y_predicted = y_predicted[:-1]
 
     error = get(y, y_predicted, error_method)

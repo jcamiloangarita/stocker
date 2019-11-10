@@ -107,11 +107,11 @@ def add_r(df, period):  # Calculate Larry William indicator (%R)
 
 
 def total(stock, years=1, interest=False, wiki_views=False, indicators=False, period=14):
-    df, start, end = main(stock, years)
+    df, start, end = main(stock, years=years)
     company = company_name(stock)
 
     if interest:
-        df = add_interest(df, company, years)  # adding Interest from Google Trends.
+        df = add_interest(df, company, years=years)  # adding Interest from Google Trends.
 
     if wiki_views:
         df = add_wiki_views(df, company, start, end)

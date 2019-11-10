@@ -19,3 +19,11 @@ These instructions will get you a copy of the project up and running on your loc
     * `pip install stocker`
 * Developers: Source code from [github](https://github.com/jcamiloangarita/stocker)
     * `git clone https://github.com/jcamiloangarita/stocker`
+    
+## Quick use
+```
+>>> import stocker
+>>> stocker.predict.tomorrow('AAPL')
+[266.07, 1.276, '2019-11-11']
+```
+Notice that output = [predicted price, error(%), date of the next business day]
