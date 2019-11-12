@@ -16,5 +16,6 @@ setup(
     classifiers=['Programming Language :: Python :: 3',
                  'Natural Language :: English',
                  'Topic :: Utilities'],
-    install_requires=['numpy', 'matplotlib', 'pytrends', 'pandas', 'requests', 'scikit-learn', 'keras', 'tensorflow']
+    install_requires=['numpy', 'matplotlib', 'pytrends', 'pandas', 'requests', 'scikit-learn', 'keras', 'tensorflow',
+                      'pandas-datareader']
 )

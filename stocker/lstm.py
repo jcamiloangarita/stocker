@@ -1,9 +1,8 @@
 from keras.models import Sequential
-from keras.layers import Dense, LSTM
+from keras.layers import Dense, LSTM, Dropout
 from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 from stocker.error import get
-
 
 def data(df, features=[]):
     columns = ['Close']
@@ -54,6 +53,7 @@ def run(df, features=[], steps=1, training=0.9, error_method='mape'):
     # designing and fitting network
     model = Sequential()
     model.add(LSTM(50, input_shape=(train_x.shape[1], train_x.shape[2])))
+    model.add(Dropout(0.2))
     model.add(Dense(1))
     model.compile(loss='mae', optimizer='adam')
     model.fit(train_x, train_y, epochs=100, batch_size=70, verbose=0)

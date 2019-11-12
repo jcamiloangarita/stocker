@@ -6,7 +6,7 @@ def get(true_values, predicted_values, error_method='mape'):
     error = 0
 
     if error_method == 'mape':
-        # calculate the mean absolute percent error
+        # calculate the mean absolute percentage error
         error = (abs((true_values - predicted_values) / true_values).sum() / len(true_values)) * 100
         error = round(error, 3)
 
