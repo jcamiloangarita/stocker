@@ -1,0 +1,36 @@
+#Plotting after data importation
+
+fig, axes =plt.subplots(nrows = 2, ncols = 1, figsize =(20.10))
+df['Close'].plot( y = 'Close Price', use_index =True, ax=axes[0]); axes[0].set_title('Close')
+df['Open'].plot(y = 'Open Price', use_index = True, ax=axes[1]); axes[1].set_title('Open')
+
+
+#Plotting for technical indicators
+
+####Stochastic Oscillator
+fig, axes =plt.subplots(nrows = 2, ncols = 1, figsize =(20.10))
+df['Close'].plot( y = 'Close Price', use_index =True, ax=axes[0]); axes[0].set_title('Close')
+df[['%K', '%D']].plot(y = '%R', use_index = True,ax=axes[1]); axes[1].set_title('Stochastic Oscillator')
+
+
+####Larry William
+fig, axes =plt.subplots(nrows = 2, ncols = 1, figsize =(20.10))
+df['Close'].plot( y = 'Close Price', use_index =True, ax=axes[0]); axes[0].set_title('Close')
+df['LW%R'].plot(y = 'LW%R', use_index = True, ax=axes[1]); axes[1].set_title('Larry William')
+
+####RSI
+fig, axes =plt.subplots(nrows = 2, ncols = 1, figsize =(20.10))
+df['Close'].plot( y = 'Close Price', use_index =True, ax=axes[0]); axes[0].set_title('Close')
+df['RSI'].plot(y = 'RSI', use_index = True, ax=axes[1]); axes[1].set_title('RSI')
+
+#Plotting scaled data
+
+plt.figure(figsize=(12,10), frameon=False, facecolor='brown', edgecolor='blue')
+plt.title('Apple Stock Prices')
+plt.xlabel('Days')
+plt.ylabel('Scaled price of AAPL stock')
+plt.plot(df, label='Price')
+plt.legend()
+plt.show()
+
+
