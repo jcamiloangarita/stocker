@@ -4,6 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 import numpy as np
 from stocker.error import get
 
+
 def data(df, features=[]):
     columns = ['Close']
     if len(features) > 0:
@@ -75,7 +76,7 @@ def run(df, features=[], steps=1, training=0.9, error_method='mape'):
     y = scaler.inverse_transform(scaled)
     y = y[mod2:, 0]
 
-    finalprice = round(y_predicted[-1],2)
+    finalprice = round(y_predicted[-1], 2)
     y_predicted = y_predicted[:-1]
 
     error = get(y, y_predicted, error_method)

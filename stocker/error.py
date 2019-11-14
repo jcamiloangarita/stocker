@@ -2,7 +2,7 @@ import math
 from sklearn.metrics import mean_squared_error
 
 
-def get(true_values, predicted_values, error_method='mape'):
+def get(true_values, predicted_values, error_method='mape'): # function to calculate the error
     error = 0
 
     if error_method == 'mape':
