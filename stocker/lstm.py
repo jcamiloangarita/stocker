@@ -83,5 +83,5 @@ def run(df, features=[], steps=1, training=0.9, error_method='mape'):
 
     result = [finalprice, error]
 
-    return result
+    return result, y_predicted, new_df[-len(y):]
 
