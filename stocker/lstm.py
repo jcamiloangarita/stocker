@@ -21,7 +21,7 @@ def get_lstm_input(data, steps=1):
     for i in range(steps, data.shape[0]):
         features = []
         for j in range(steps):
-            features.append(data[i - steps, :])
+            features.append(data[i - steps + j, :])
         features.append(data[i, :])
         samples.append(features)
 
@@ -31,7 +31,6 @@ def get_lstm_input(data, steps=1):
 
     samples.append(features)
     samples = np.asarray(samples)
-
     return samples
 
 
