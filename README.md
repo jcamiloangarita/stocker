@@ -1,5 +1,5 @@
 # STOCKER
-Stocker is a python tool that uses ANN to predict the stock's close price for the next business day.
+Stocker is a python tool that uses ANN to predict the stock's close price for the next business day. Suggestions and contributions of all kinds are very welcome.
 
 ## Authors
 
