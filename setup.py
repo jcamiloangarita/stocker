@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 setup(
     name='stocker',
     packages=['stocker'],
-    version='0.1.5',
+    version='0.1.6',
     description='Stock Price Prediction',
     long_description=long_description,
     long_description_content_type="text/markdown",
