@@ -3,8 +3,26 @@ from stocker.lstm import run
 import datetime as dt
 
 
-def tomorrow(stock, features=[], steps=1, training=0.9, period=14, years=1, error_method='mape', plot=False):
-    # FUNCTION TO PREDICT THE CLOSE PRICE FOR THE NEXT DAY
+def tomorrow(stock, features=None, steps=1, training=0.9, period=14, years=1, error_method='mape', plot=False):
+    """
+    Function to predict the "close price" for the next day.
+
+    Arguments:
+        stock (str): stock label
+        features (list): ['Interest', 'Wiki_views', 'RSI', '%K', '%R']
+        steps (int): previous days to consider for generating the model.
+        training (float): fraction assigned for training the model
+        period (int): number of days considered for calculating indicators.
+        years (int or float): years of data to be considered
+        error_method (str): 'mape' or 'mse'
+        plot (bool): generate performance plot
+
+    Returns:
+        Result for the next business day. [price, error, date]
+    """
+
+    if features is None:
+        features = []
 
     # GET ALL THE DATA:
     stock_data = total(stock, years=years, interest='Interest' in features, wiki_views='Wiki_views' in features,
@@ -37,4 +55,3 @@ def tomorrow(stock, features=[], steps=1, training=0.9, period=14, years=1, erro
         plt.show()
 
         return result
-
