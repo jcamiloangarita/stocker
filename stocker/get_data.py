@@ -52,8 +52,11 @@ def add_wiki_views(df, company, start, end):  # function to get number of page v
     start = start.replace('-', '')
     end = end.replace('-', '')
     link = 'https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents' \
-           '/{s}/daily/{st}/{end}'.format(s=company, st=start, end=end)
-    wiki_data = requests.get(link).json()  # get the data from Wikipedia API
+           '/{company}/daily/{st}/{end}'.format(company=company, st=start, end=end)
+    r = requests.Session()
+    r.headers = {"User-Agent": "stocker/0.1.7 (https://github.com/jcamiloangarita/stocker; camiloang94@gmail.com)"}
+    response = r.get(link)
+    wiki_data = response.json()  # get the data from Wikipedia API
     views = [i['views'] for i in wiki_data['items']]  # saving views values
     date = [i['timestamp'] for i in wiki_data['items']]  # saving dates
     date = [dt.datetime.strptime(date[:-2], '%Y%m%d').date().strftime('%Y-%m-%d') for date in date]  # change format
