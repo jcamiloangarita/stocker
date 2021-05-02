@@ -1,3 +1,9 @@
+[![PyPI version](https://badge.fury.io/py/stocker.svg)](https://badge.fury.io/py/stocker)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/jcamiloangarita/stocker/blob/master/LICENSE)
+[![Build Status](https://www.travis-ci.com/jcamiloangarita/stocker.svg?branch=master)](https://www.travis-ci.com/jcamiloangarita/stocker)
+[![Downloads](https://pepy.tech/badge/stocker)](https://pepy.tech/project/stocker)
+
+
 # STOCKER
 Stocker is a python tool that uses ANN to predict the stock's close price for the next business day. Suggestions and contributions of all kinds are very welcome.
 
