@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 setup(
     name='stocker',
     packages=['stocker'],
-    version='0.1.8b1',
+    version='0.1.8',
     description='Stock Price Prediction',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,6 +16,6 @@ setup(
     classifiers=['Programming Language :: Python :: 3',
                  'Natural Language :: English',
                  'Topic :: Utilities'],
-    install_requires=['numpy', 'pandas-datareader', 'pytrends', 'pandas', 'requests', 'scikit-learn',
+    install_requires=['numpy', 'pandas-datareader', 'pytrends', 'pandas', 'requests', 'scikit-learn', 'keras',
                       'tensorflow', 'matplotlib']
 )
