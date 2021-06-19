@@ -1,6 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/stocker.svg)](https://badge.fury.io/py/stocker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/jcamiloangarita/stocker/blob/master/LICENSE)
-[![Build Status](https://www.travis-ci.com/jcamiloangarita/stocker.svg?branch=master)](https://www.travis-ci.com/jcamiloangarita/stocker)
+[![tests](https://github.com/jcamiloangarita/stocker/actions/workflows/tests.yml/badge.svg)](https://github.com/jcamiloangarita/stocker/actions/workflows/tests.yml)
 [![Downloads](https://pepy.tech/badge/stocker)](https://pepy.tech/project/stocker)
 
 
