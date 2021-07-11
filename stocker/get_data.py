@@ -1,5 +1,5 @@
 import pandas as pd
-from pandas_datareader import data
+import yfinance as yf
 import requests
 import datetime as dt
 from pytrends.request import TrendReq
@@ -8,7 +8,7 @@ from pytrends.request import TrendReq
 def main(stock, years=1):  # function to get data from Yahoo Finance
     end = dt.datetime.today().strftime('%Y-%m-%d')  # today as the end date
     start = (dt.datetime.today() - dt.timedelta(days=365*years)).strftime('%Y-%m-%d')  # 1 year ago as start
-    df = data.DataReader(stock, 'yahoo', start, end)
+    df = yf.download(stock, start, end)
 
     return df, start, end
 
