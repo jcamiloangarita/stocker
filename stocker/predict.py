@@ -28,6 +28,14 @@ def tomorrow(stock, features=None, steps=1, training=0.9, period=14, years=1, er
     stock_data = total(stock, years=years, interest='Interest' in features, wiki_views='Wiki_views' in features,
                        indicators='RSI' and '%K' and '%R' in features, period=period)
 
+    removing = []
+    for feature in features:
+        if feature not in stock_data.columns:
+            removing.append(feature)
+
+    for ft in removing:
+        features.remove(ft)
+
     # SPLIT DATA, CREATE THE MODEL, GENERATE AND CALCULATE THE ERROR:
     result, y_predicted, df = run(stock_data, features, steps, training, error_method)
 
