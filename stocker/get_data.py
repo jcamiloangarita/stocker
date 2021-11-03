@@ -3,6 +3,7 @@ import yfinance as yf
 import requests
 import datetime as dt
 from pytrends.request import TrendReq
+import json
 
 
 def main(stock, years=1):  # function to get data from Yahoo Finance
@@ -15,7 +16,10 @@ def main(stock, years=1):  # function to get data from Yahoo Finance
 
 def company_name(stock):  # function to get the company's name from the stock
     url = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={}&region=1&lang=en".format(stock)  # source
-    company = requests.get(url).json()['ResultSet']['Result'][0]['name']   # saving the name as 'company'
+    try:
+        company = requests.get(url).json()['ResultSet']['Result'][0]['name']   # saving the name as 'company'
+    except json.decoder.JSONDecodeError:
+        return None
 
     return company
 
@@ -111,13 +115,15 @@ def add_r(df, period):  # Calculate Larry William indicator (%R)
 def total(stock, years=1, interest=False, wiki_views=False, indicators=False, period=14):
     # main function to combine data from Yahoo Finance, Google Trends, Wikipedia and calculated indicators.
     df, start, end = main(stock, years=years)  # get data from Yahoo Finance and define star and end
-    company = company_name(stock)  # get the name of the company
+    company = None
+    if interest or wiki_views:
+        company = company_name(stock)  # get the name of the company
 
-    if interest:
-        df = add_interest(df, company, years=years)  # adding Interest from Google Trends.
-
-    if wiki_views:
-        df = add_wiki_views(df, company, start, end)  # adding Wiki Views
+    if company is not None:
+        if interest:
+            df = add_interest(df, company, years=years)  # adding Interest from Google Trends.
+        if wiki_views:
+            df = add_wiki_views(df, company, start, end)  # adding Wiki Views
 
     if indicators:  # Adding indicators
         df = add_k(df, period)  # generating %K column.
