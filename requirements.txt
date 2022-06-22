@@ -1,4 +1,4 @@
-numpy==1.19.5
+numpy==1.22.0
 pytrends==4.7.3
 pandas==1.2.4
 scikit-learn==0.24.2
